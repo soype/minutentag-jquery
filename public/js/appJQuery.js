@@ -5,66 +5,7 @@ import stockPrice from "../stock-price.js";
 // Mini router for the product single view
 ////////////////////////////////////////////////////////
 // Prevent default and change url while keeping history
-const route = (event) => {
-  event = event || window.event;
-  event.preventDefault();
-  event.stopPropagation();
-  window.history.pushState({}, "", event.target.href);
-  handleLocation();
-};
 
-const createRoutes = () => {
-  let routes = {
-    404: {
-      template: "pages/404.html",
-      title: "Not found",
-      description: "Not found",
-    },
-    "/": {
-      template: "pages/index.html",
-      title: "Minutentag",
-      description: "Drinks straight to you!",
-    },
-  };
-
-  for (let i = 0; i < products.length; i++) {
-    // Format brand name to avoid spaces
-    let brand = products[i].brand.replace(/\s/g, "");
-    routes[`/${products[i].id}-${brand}`] = {
-      template: `pages/product-detail.html`,
-      title: brand,
-      description: "",
-    };
-  }
-  return routes;
-};
-
-const routes = createRoutes();
-
-const handleLocation = async () => {
-  let path = window.location.pathname;
-  if (path.length == 0) {
-    path = "/";
-  }
-
-  const route = routes[path] || routes[404];
-  const html = await fetch(route.template).then((data) => data.text());
-  document.getElementById("app").innerHTML = html;
-  document.title = route.title;
-  document
-    .querySelector('meta[name="description"]')
-    .setAttribute("content", route.description);
-  if (route == "/") {
-    listProducts(products);
-  }
-  if (route != routes[404]) {
-    let id = extractId(path);
-    renderSingle(id);
-  }
-};
-
-window.onpopstate = handleLocation;
-window.route = route;
 
 // Helper functions to provide dynamic content
 const extractId = (path) => {
@@ -111,7 +52,8 @@ const renderSingle = (id) => {
     for (let i = 0; i < products.length; i++) {
       let stockData = stockPrice[products[i].skus[0].code];
       if (products[i].id == id) {
-        const container = $("#container");
+        const container = $(".detail-container");
+        console.log(container)
   
         // Add image
         const img = $("<img>").addClass("item-img").attr("src", `/icons/${products[i].brand}.png`);
@@ -225,7 +167,7 @@ const listProducts = (products) => {
   
       const div = $("<div>").addClass("item");
   
-      const imgContainer = $("<div>").addClass("img-container").attr("href", `/${products[i].id}-${brand}`);
+      const imgContainer = $("<a>").addClass("img-container").attr("href", `/${products[i].id}-${brand}`);
       const img = $("<img>").attr("src", `.${products[i].image}`).attr("href", `/${products[i].id}-${brand}`);
       const itemTitle = $("<a>").addClass("item-title").attr("href", `/${products[i].id}-${brand}`).text(products[i].brand);
   
@@ -269,4 +211,9 @@ const listProducts = (products) => {
   
   if (window.location.pathname == "/") {
     listProducts(products);
+  }
+
+  if (window.location.pathname != "/") {
+    let id = extractId(window.location.pathname);
+    renderSingle(id);
   }
