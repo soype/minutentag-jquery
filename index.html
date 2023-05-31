@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="">
+    <title>Minutentag</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <div class="header">
+        <div class="menu-toggle">
+          <div class="span-container">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+        <div class="profile-pic">
+          <img src="./icons/Sin título-1.jpg" alt="" />
+        </div>
+      </div>
+      <div class="greeting">
+        <p class="greeting-name">Hi Mr. Michael,</p>
+        <h1 class="greeting-title">Welcome Back!</h1>
+      </div>
+      <div class="search">
+        <svg
+          width="16"
+          height="16"
+          viewBox="0 0 16 16"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <circle
+            cx="7.06471"
+            cy="7.06471"
+            r="6.31471"
+            stroke="#0F0D23"
+            stroke-width="1.5"
+          />
+          <path
+            d="M12.0924 11.8441L15 14.6466"
+            stroke="#0F0D23"
+            stroke-width="1.5"
+            stroke-linecap="round"
+          />
+        </svg>
+        <input
+          type="text"
+          placeholder="Search burger, pizza, drink or etc..."
+        />
+      </div>
+      <div class="categories">
+        <div class="category-subtitle">
+          <h2>Drink Category</h2>
+          <a href="" class="see-all">See All</a>
+        </div>
+        <div class="categories-buttons">
+          <button class="category-button">All</button>
+          <button class="category-button category-button-selected">
+            <img src="./icons/Beer.png" width="23px" alt="" /> Beer
+          </button>
+          <button class="category-button">
+            <img src="./icons/Wine-glass.png" width="23px" alt="" /> Wine
+          </button>
+        </div>
+      </div>
+      <div class="products">
+        <div class="products-subtitle">
+          <h2>Popular</h2>
+          <p class="see-all">See All</p>
+        </div>
+        <div class="products-container" id="products">
+          <!-- Content created in app.js -->
+        </div>
+      </div>
+      <div class="menu">
+        <div class="menu-item">
+          <svg
+            width="21"
+            height="22"
+            viewBox="0 0 21 22"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M13 21H12.25C12.25 21.4142 12.5858 21.75 13 21.75V21ZM19.9999 18.9309L19.2499 18.9309L19.2499 18.938L19.9999 18.9309ZM19.2546 7.60333L18.7765 8.1812L18.7784 8.18275L19.2546 7.60333ZM11.8663 1.49089L11.3873 2.06798L11.3883 2.06877L11.8663 1.49089ZM9.13356 1.49089L9.61164 2.06877L9.61259 2.06798L9.13356 1.49089ZM1.74531 7.60333L2.22151 8.18275L2.22339 8.1812L1.74531 7.60333ZM8 21V21.75C8.41421 21.75 8.75 21.4142 8.75 21H8ZM17.8936 20.25H13V21.75H17.8936V20.25ZM19.2499 18.938C19.2566 19.6408 18.6638 20.25 17.8936 20.25V21.75C19.4565 21.75 20.7648 20.5012 20.7499 18.9237L19.2499 18.938ZM19.2499 9.1763V18.9309H20.7499V9.1763H19.2499ZM18.7784 8.18275C19.0796 8.43028 19.2499 8.79796 19.2499 9.1763H20.7499C20.7499 8.35115 20.3802 7.55758 19.7308 7.0239L18.7784 8.18275ZM11.3883 2.06877L18.7765 8.1812L19.7327 7.02545L12.3444 0.913023L11.3883 2.06877ZM9.61259 2.06798C10.1234 1.64401 10.8766 1.64401 11.3873 2.06798L12.3454 0.913806C11.2791 0.0287314 9.72079 0.0287314 8.65453 0.913806L9.61259 2.06798ZM2.22339 8.1812L9.61164 2.06877L8.65548 0.913023L1.26722 7.02545L2.22339 8.1812ZM1.75 9.1763C1.75 8.7895 1.91871 8.43161 2.22151 8.18275L1.2691 7.0239C0.621369 7.55625 0.25 8.3385 0.25 9.1763H1.75ZM1.75 18.9309V9.1763H0.25V18.9309H1.75ZM3.1171 20.25C2.34846 20.25 1.75 19.6407 1.75 18.9309H0.25C0.25 20.5013 1.55261 21.75 3.1171 21.75V20.25ZM8 20.25H3.1171V21.75H8V20.25ZM8.75 21V15.5H7.25V21H8.75ZM8.75 15.5C8.75 14.5335 9.5335 13.75 10.5 13.75V12.25C8.70507 12.25 7.25 13.7051 7.25 15.5H8.75ZM10.5 13.75C11.4665 13.75 12.25 14.5335 12.25 15.5H13.75C13.75 13.7051 12.2949 12.25 10.5 12.25V13.75ZM12.25 15.5V21H13.75V15.5H12.25Z"
+              fill="#8F8F8F"
+            />
+          </svg>
+        </div>
+        <div class="menu-item">
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M9 8H14"
+              stroke="#8F8F8F"
+              stroke-width="1.5"
+              stroke-miterlimit="10"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M9 16H14"
+              stroke="#8F8F8F"
+              stroke-width="1.5"
+              stroke-miterlimit="10"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M9 12H16"
+              stroke="#8F8F8F"
+              stroke-width="1.5"
+              stroke-miterlimit="10"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <rect
+              x="3.75"
+              y="2.75"
+              width="16.5"
+              height="18.5"
+              rx="3.25"
+              stroke="#8F8F8F"
+              stroke-width="1.5"
+            />
+          </svg>
+        </div>
+        <div class="menu-item">
+          <svg
+            width="21"
+            height="21"
+            viewBox="0 0 21 21"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle
+              cx="10"
+              cy="5"
+              r="4.25"
+              stroke="#8F8F8F"
+              stroke-width="1.5"
+            />
+            <path
+              d="M5.53113 5.75H14.4689C16.1079 5.75 17.4905 6.97049 17.6938 8.59689L18.6938 16.5969C18.9362 18.5367 17.4237 20.25 15.4689 20.25H4.53113C2.57626 20.25 1.06375 18.5367 1.30623 16.5969L2.30623 8.59689C2.50953 6.97049 3.89208 5.75 5.53113 5.75Z"
+              fill="white"
+              stroke="#8F8F8F"
+              stroke-width="1.5"
+            />
+            <circle cx="7.75" cy="9.75" r="0.75" fill="#8F8F8F" />
+            <circle cx="11.75" cy="9.75" r="0.75" fill="#8F8F8F" />
+            <circle
+              cx="17.5"
+              cy="5.5"
+              r="2.75"
+              fill="#FF9F24"
+              stroke="white"
+              stroke-width="1.5"
+            />
+          </svg>
+        </div>
+        <div class="menu-item">
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M19.3845 5.48878C19.1245 5.17878 18.6945 5.08878 18.3145 5.20878C17.5045 5.47878 16.5845 5.40878 15.7845 4.95878C14.9845 4.49878 14.4645 3.73878 14.2845 2.90878C14.1945 2.50878 13.8945 2.17878 13.4945 2.11878C12.4945 1.95878 11.4545 1.95878 10.4345 2.12878C10.0345 2.19878 9.74454 2.51878 9.65454 2.91878C9.47454 3.75878 8.96454 4.51878 8.16454 4.98878C7.36454 5.45878 6.44454 5.51878 5.63454 5.25878C5.25454 5.13878 4.82454 5.22878 4.56454 5.53878C3.91454 6.34878 3.40454 7.24878 3.05454 8.19878C2.91454 8.57878 3.05454 8.99878 3.35454 9.25878C3.98454 9.83878 4.38454 10.6688 4.39454 11.5888C4.39454 12.5188 3.99454 13.3388 3.36454 13.9188C3.06454 14.1888 2.93454 14.6088 3.07454 14.9788C3.25454 15.4488 3.47454 15.9188 3.73454 16.3688C3.99454 16.8188 4.29454 17.2388 4.61454 17.6288C4.87454 17.9388 5.30454 18.0288 5.68454 17.9088C6.49454 17.6388 7.41454 17.7088 8.21454 18.1588C9.01454 18.6188 9.53454 19.3788 9.71454 20.2088C9.80454 20.5988 10.0945 20.9288 10.4945 20.9888C11.5045 21.1488 12.5345 21.1488 13.5545 20.9788C13.9545 20.9088 14.2445 20.5888 14.3345 20.1888C14.5145 19.3488 15.0245 18.5888 15.8245 18.1188C16.6245 17.6488 17.5445 17.5888 18.3545 17.8488C18.7445 17.9688 19.1745 17.8788 19.4245 17.5588C20.0745 16.7488 20.5845 15.8488 20.9445 14.8988C21.0845 14.5188 20.9445 14.0988 20.6445 13.8388C20.0045 13.2688 19.6045 12.4388 19.5945 11.5188C19.5945 10.5888 19.9945 9.76878 20.6245 9.18878C20.9245 8.91878 21.0545 8.49878 20.9145 8.12878C20.7345 7.65878 20.5145 7.18878 20.2545 6.73878C20.0045 6.28878 19.7045 5.87878 19.3845 5.48878Z"
+              stroke="#8F8F8F"
+              stroke-width="1.5"
+              stroke-miterlimit="10"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M12.0046 14.5188C13.6393 14.5188 14.9646 13.1935 14.9646 11.5588C14.9646 9.92402 13.6393 8.59879 12.0046 8.59879C10.3698 8.59879 9.04456 9.92402 9.04456 11.5588C9.04456 13.1935 10.3698 14.5188 12.0046 14.5188Z"
+              stroke="#8F8F8F"
+              stroke-width="1.5"
+              stroke-miterlimit="10"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="/js/app.js"></script>
+    <!-- <script type="module" src="/js/appJQuery.js"></script> -->
+  </body>
+</html>
